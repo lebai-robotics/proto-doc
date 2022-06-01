@@ -1,0 +1,3353 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#io.proto">io.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.io.AddressOrName"><span class="badge">M</span>AddressOrName</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetIoPinRequest"><span class="badge">M</span>GetIoPinRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetIoPinResponse"><span class="badge">M</span>GetIoPinResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetIoPinsRequest"><span class="badge">M</span>GetIoPinsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetIoPinsResponse"><span class="badge">M</span>GetIoPinsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceListRequest"><span class="badge">M</span>IoDeviceListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceListResponse"><span class="badge">M</span>IoDeviceListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceModel"><span class="badge">M</span>IoDeviceModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceModelFields"><span class="badge">M</span>IoDeviceModelFields</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceSaveRequest"><span class="badge">M</span>IoDeviceSaveRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinListRequest"><span class="badge">M</span>IoPinListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinListResponse"><span class="badge">M</span>IoPinListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinModel"><span class="badge">M</span>IoPinModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinModelFields"><span class="badge">M</span>IoPinModelFields</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinSaveRequest"><span class="badge">M</span>IoPinSaveRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.SetIoPinRequest"><span class="badge">M</span>SetIoPinRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.SetIoPinsRequest"><span class="badge">M</span>SetIoPinsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.WaitIoPinRequest"><span class="badge">M</span>WaitIoPinRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.io.IoDeviceKind"><span class="badge">E</span>IoDeviceKind</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.IoPinKind"><span class="badge">E</span>IoPinKind</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.io.IoService"><span class="badge">S</span>IoService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#motion.proto">motion.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.motion.MoveRequest"><span class="badge">M</span>MoveRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.motion.MotionService"><span class="badge">S</span>MotionService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#posture.proto">posture.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.posture.CartesianFrame"><span class="badge">M</span>CartesianFrame</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.CartesianMatrix"><span class="badge">M</span>CartesianMatrix</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.CartesianPose"><span class="badge">M</span>CartesianPose</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.CartesianTargetPose"><span class="badge">M</span>CartesianTargetPose</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.Euler"><span class="badge">M</span>Euler</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.JointFrame"><span class="badge">M</span>JointFrame</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.JointPose"><span class="badge">M</span>JointPose</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.JointTargetPose"><span class="badge">M</span>JointTargetPose</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.Pose"><span class="badge">M</span>Pose</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.Position"><span class="badge">M</span>Position</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.Quaternion"><span class="badge">M</span>Quaternion</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.Rotation"><span class="badge">M</span>Rotation</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.RotationMatrix"><span class="badge">M</span>RotationMatrix</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.posture.CartesianFrame.Kind"><span class="badge">E</span>CartesianFrame.Kind</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.posture.JointFrame.Kind"><span class="badge">E</span>JointFrame.Kind</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#scene.proto">scene.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.scene.SceneListRequest"><span class="badge">M</span>SceneListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneListResponse"><span class="badge">M</span>SceneListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneModel"><span class="badge">M</span>SceneModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneModelFields"><span class="badge">M</span>SceneModelFields</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneRunRequest"><span class="badge">M</span>SceneRunRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneRunResponse"><span class="badge">M</span>SceneRunResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.scene.SceneSaveRequest"><span class="badge">M</span>SceneSaveRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.scene.SceneKind"><span class="badge">E</span>SceneKind</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.scene.SceneService"><span class="badge">S</span>SceneService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#sql.proto">sql.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.sql.DateFilter"><span class="badge">M</span>DateFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.IdOrKey"><span class="badge">M</span>IdOrKey</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.IdRequest"><span class="badge">M</span>IdRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.Ids"><span class="badge">M</span>Ids</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.IndexRequest"><span class="badge">M</span>IndexRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.ListFilter"><span class="badge">M</span>ListFilter</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.sql.Pagination"><span class="badge">M</span>Pagination</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.sql.DataStatus"><span class="badge">E</span>DataStatus</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#task.proto">task.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.task.TaskListRequest"><span class="badge">M</span>TaskListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.task.TaskListResponse"><span class="badge">M</span>TaskListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.task.TaskModel"><span class="badge">M</span>TaskModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.task.TaskModelFields"><span class="badge">M</span>TaskModelFields</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.task.TaskStdout"><span class="badge">M</span>TaskStdout</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.task.TaskState"><span class="badge">E</span>TaskState</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.task.TaskService"><span class="badge">S</span>TaskService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="io.proto">io.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.io.AddressOrName">AddressOrName</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetIoPinRequest">GetIoPinRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#lebai.io.AddressOrName">AddressOrName</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetIoPinResponse">GetIoPinResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetIoPinsRequest">GetIoPinsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#lebai.io.AddressOrName">AddressOrName</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>count</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetIoPinsResponse">GetIoPinsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoDeviceListRequest">IoDeviceListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.io.IoDeviceModelFields">IoDeviceModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoDeviceListResponse">IoDeviceListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.io.IoDeviceModel">IoDeviceModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoDeviceModel">IoDeviceModel</h3>
+        <p>IO设备模型</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.io.IoDeviceKind">IoDeviceKind</a></td>
+                  <td></td>
+                  <td><p>类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>IP地址 或 串口地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>port</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>TCP端口号 或 串口波特率 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>slave_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>ModBus从机地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>enabled</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>使能 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>online</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>在线 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>di_num</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>do_num</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ai_num</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ao_num</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoDeviceModelFields">IoDeviceModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.io.IoDeviceModel">IoDeviceModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoDeviceSaveRequest">IoDeviceSaveRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#lebai.sql.Ids">lebai.sql.Ids</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#lebai.io.IoDeviceModelFields">IoDeviceModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoPinListRequest">IoPinListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.io.IoPinModelFields">IoPinModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoPinListResponse">IoPinListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.io.IoPinModel">IoPinModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoPinModel">IoPinModel</h3>
+        <p>IO引脚模型</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.io.IoPinKind">IoPinKind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>引脚号 或 ModBus内存地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>enabled</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>使能 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>interval</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>轮询更新间隔(毫秒) 0为不自动更新 建议大于70 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>precision</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>比较精度（小数点后若干位），默认为小数点后 5 位 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>原始值 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoPinModelFields">IoPinModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.io.IoPinModel">IoPinModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.IoPinSaveRequest">IoPinSaveRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#lebai.sql.Ids">lebai.sql.Ids</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#lebai.io.IoPinModelFields">IoPinModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.SetIoPinRequest">SetIoPinRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#lebai.io.AddressOrName">AddressOrName</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.SetIoPinsRequest">SetIoPinsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#lebai.io.AddressOrName">AddressOrName</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.WaitIoPinRequest">WaitIoPinRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#lebai.io.AddressOrName">AddressOrName</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>relation</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.io.IoDeviceKind">IoDeviceKind</h3>
+        <p>IO设备类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ROBOT</td>
+                <td>0</td>
+                <td><p>机箱IO</p></td>
+              </tr>
+            
+              <tr>
+                <td>FLANGE</td>
+                <td>1</td>
+                <td><p>法兰IO</p></td>
+              </tr>
+            
+              <tr>
+                <td>EXTRA</td>
+                <td>2</td>
+                <td><p>拓展IO</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODBUS_FLANGE</td>
+                <td>3</td>
+                <td><p>法兰ModBus</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODBUS_RTU</td>
+                <td>4</td>
+                <td><p>ModBus RTU</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODBUS_TCP</td>
+                <td>5</td>
+                <td><p>ModBus TCP</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.io.IoPinKind">IoPinKind</h3>
+        <p>IO引脚类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DI</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DO</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>AI</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>AO</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.io.IoService">IoService</h3>
+        <p>IO相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SaveIoDevice</td>
+                <td><a href="#lebai.io.IoDeviceSaveRequest">IoDeviceSaveRequest</a></td>
+                <td><a href="#lebai.io.IoDeviceModel">IoDeviceModel</a></td>
+                <td><p>保存IO设备</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadIoDevice</td>
+                <td><a href="#lebai.sql.IndexRequest">.lebai.sql.IndexRequest</a></td>
+                <td><a href="#lebai.io.IoDeviceModel">IoDeviceModel</a></td>
+                <td><p>查询IO设备</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadIoDeviceList</td>
+                <td><a href="#lebai.io.IoDeviceListRequest">IoDeviceListRequest</a></td>
+                <td><a href="#lebai.io.IoDeviceListResponse">IoDeviceListResponse</a></td>
+                <td><p>查询IO设备列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>SaveIoPin</td>
+                <td><a href="#lebai.io.IoPinSaveRequest">IoPinSaveRequest</a></td>
+                <td><a href="#lebai.io.IoPinModel">IoPinModel</a></td>
+                <td><p>保存IO Pin</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadIoPin</td>
+                <td><a href="#lebai.sql.IndexRequest">.lebai.sql.IndexRequest</a></td>
+                <td><a href="#lebai.io.IoPinModel">IoPinModel</a></td>
+                <td><p>查询IO Pin</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadIoPinList</td>
+                <td><a href="#lebai.io.IoPinListRequest">IoPinListRequest</a></td>
+                <td><a href="#lebai.io.IoPinListResponse">IoPinListResponse</a></td>
+                <td><p>查询IO Pin列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDi</td>
+                <td><a href="#lebai.io.GetIoPinRequest">GetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDis</td>
+                <td><a href="#lebai.io.GetIoPinsRequest">GetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDo</td>
+                <td><a href="#lebai.io.GetIoPinRequest">GetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDos</td>
+                <td><a href="#lebai.io.GetIoPinsRequest">GetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetDo</td>
+                <td><a href="#lebai.io.SetIoPinRequest">SetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetDos</td>
+                <td><a href="#lebai.io.SetIoPinsRequest">SetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAi</td>
+                <td><a href="#lebai.io.GetIoPinRequest">GetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAis</td>
+                <td><a href="#lebai.io.GetIoPinsRequest">GetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAo</td>
+                <td><a href="#lebai.io.GetIoPinRequest">GetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAos</td>
+                <td><a href="#lebai.io.GetIoPinsRequest">GetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetAo</td>
+                <td><a href="#lebai.io.SetIoPinRequest">SetIoPinRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinResponse">GetIoPinResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetAos</td>
+                <td><a href="#lebai.io.SetIoPinsRequest">SetIoPinsRequest</a></td>
+                <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="motion.proto">motion.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.motion.MoveRequest">MoveRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>p</td>
+                  <td><a href="#google.protobuf.Value">google.protobuf.Value</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>v</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>a</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>t</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>r</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.motion.MotionService">MotionService</h3>
+        <p>机器人运动相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Movej</td>
+                <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>关节空间运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>Movel</td>
+                <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>直线运动</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="posture.proto">posture.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.posture.CartesianFrame">CartesianFrame</h3>
+        <p>笛卡尔空间参考系</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>position_kind</td>
+                  <td><a href="#lebai.posture.CartesianFrame.Kind">CartesianFrame.Kind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>position</td>
+                  <td><a href="#lebai.posture.Position">Position</a></td>
+                  <td></td>
+                  <td><p>自定义位置，仅position_kind=CUSTOM时生效 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rotation_kind</td>
+                  <td><a href="#lebai.posture.CartesianFrame.Kind">CartesianFrame.Kind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rotation</td>
+                  <td><a href="#lebai.posture.Rotation">Rotation</a></td>
+                  <td></td>
+                  <td><p>自定义姿态，仅rotation_kind=CUSTOM时生效 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.CartesianMatrix">CartesianMatrix</h3>
+        <p>笛卡尔空间 位姿4*4矩阵</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>matrix</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p>16个元素 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.CartesianPose">CartesianPose</h3>
+        <p>笛卡尔空间 位姿</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>position</td>
+                  <td><a href="#lebai.posture.Position">Position</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rotation</td>
+                  <td><a href="#lebai.posture.Rotation">Rotation</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.CartesianTargetPose">CartesianTargetPose</h3>
+        <p>机器人笛卡尔空间</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>base</td>
+                  <td><a href="#lebai.posture.CartesianFrame">CartesianFrame</a></td>
+                  <td></td>
+                  <td><p>参考系 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>delta</td>
+                  <td><a href="#lebai.posture.CartesianPose">CartesianPose</a></td>
+                  <td></td>
+                  <td><p>增量 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.Euler">Euler</h3>
+        <p>欧拉角</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>roll</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pitch</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>yaw</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.JointFrame">JointFrame</h3>
+        <p>关节空间参考系</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.posture.JointFrame.Kind">JointFrame.Kind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>joints</td>
+                  <td><a href="#lebai.posture.JointPose">JointPose</a></td>
+                  <td></td>
+                  <td><p>自定义关节位置，仅kind=CUSTOM时生效 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.JointPose">JointPose</h3>
+        <p>关节空间 关节角</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>joint</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p>关节度数（PI代表180°） </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.JointTargetPose">JointTargetPose</h3>
+        <p>机器人关节空间</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>base</td>
+                  <td><a href="#lebai.posture.JointFrame">JointFrame</a></td>
+                  <td></td>
+                  <td><p>参考系 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>delta</td>
+                  <td><a href="#lebai.posture.JointPose">JointPose</a></td>
+                  <td></td>
+                  <td><p>增量 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.Pose">Pose</h3>
+        <p>枚举 机器人空间</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>joint</td>
+                  <td><a href="#lebai.posture.JointTargetPose">JointTargetPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cart</td>
+                  <td><a href="#lebai.posture.CartesianTargetPose">CartesianTargetPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.Position">Position</h3>
+        <p>位置</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>x</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>y</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>z</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.Quaternion">Quaternion</h3>
+        <p>四元组</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>w</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>i</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>j</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>k</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.Rotation">Rotation</h3>
+        <p>枚举 姿态</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>euler</td>
+                  <td><a href="#lebai.posture.Euler">Euler</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>quaternion</td>
+                  <td><a href="#lebai.posture.Quaternion">Quaternion</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>matrix</td>
+                  <td><a href="#lebai.posture.RotationMatrix">RotationMatrix</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.posture.RotationMatrix">RotationMatrix</h3>
+        <p>姿态3*3矩阵</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>matrix</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p>9个元素 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.posture.CartesianFrame.Kind">CartesianFrame.Kind</h3>
+        <p>笛卡尔空间参考系类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BASE</td>
+                <td>0</td>
+                <td><p>基座</p></td>
+              </tr>
+            
+              <tr>
+                <td>FLANGE</td>
+                <td>1</td>
+                <td><p>法兰平面</p></td>
+              </tr>
+            
+              <tr>
+                <td>TCP</td>
+                <td>2</td>
+                <td><p>TCP</p></td>
+              </tr>
+            
+              <tr>
+                <td>CUSTOM</td>
+                <td>99</td>
+                <td><p>自定义</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.posture.JointFrame.Kind">JointFrame.Kind</h3>
+        <p>关节空间参考系类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BASE</td>
+                <td>0</td>
+                <td><p>关节零位</p></td>
+              </tr>
+            
+              <tr>
+                <td>CURRENT</td>
+                <td>1</td>
+                <td><p>当前关节位置</p></td>
+              </tr>
+            
+              <tr>
+                <td>CUSTOM</td>
+                <td>99</td>
+                <td><p>指定关节位置</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="scene.proto">scene.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.scene.SceneListRequest">SceneListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.scene.SceneModelFields">SceneModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneListResponse">SceneListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.scene.SceneModel">SceneModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneModel">SceneModel</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>场景名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.scene.SceneKind">SceneKind</a></td>
+                  <td></td>
+                  <td><p>场景类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>source</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>check_first</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>运行前是否校验位置 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>first</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>检验位置 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>loop_to</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>循环运行次数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>debug</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneModelFields">SceneModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.scene.SceneModel">SceneModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneRunRequest">SceneRunRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#lebai.sql.IdOrKey">lebai.sql.IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_main</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>是否以主任务方式运行 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneRunResponse">SceneRunResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>task</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>任务Id </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.scene.SceneSaveRequest">SceneSaveRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#lebai.sql.Ids">lebai.sql.Ids</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#lebai.scene.SceneModelFields">SceneModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.scene.SceneKind">SceneKind</h3>
+        <p>场景类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNSPECIFIED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TIME_LINE</td>
+                <td>1</td>
+                <td><p>时间轴</p></td>
+              </tr>
+            
+              <tr>
+                <td>BLOCKLY</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LUA</td>
+                <td>3</td>
+                <td><p>Lua</p></td>
+              </tr>
+            
+              <tr>
+                <td>TREE</td>
+                <td>4</td>
+                <td><p>树形</p></td>
+              </tr>
+            
+              <tr>
+                <td>PYTHON</td>
+                <td>5</td>
+                <td><p>Python</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.scene.SceneService">SceneService</h3>
+        <p>任务相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SaveScene</td>
+                <td><a href="#lebai.scene.SceneSaveRequest">SceneSaveRequest</a></td>
+                <td><a href="#lebai.scene.SceneModel">SceneModel</a></td>
+                <td><p>保存场景</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadScene</td>
+                <td><a href="#lebai.sql.IndexRequest">.lebai.sql.IndexRequest</a></td>
+                <td><a href="#lebai.scene.SceneModel">SceneModel</a></td>
+                <td><p>查询场景</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadSceneList</td>
+                <td><a href="#lebai.scene.SceneListRequest">SceneListRequest</a></td>
+                <td><a href="#lebai.scene.SceneListResponse">SceneListResponse</a></td>
+                <td><p>查询场景列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>Scene</td>
+                <td><a href="#lebai.scene.SceneRunRequest">SceneRunRequest</a></td>
+                <td><a href="#lebai.scene.SceneRunResponse">SceneRunResponse</a></td>
+                <td><p>运行场景，返回任务ID</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="sql.proto">sql.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.sql.DateFilter">DateFilter</h3>
+        <p>日期取值范围</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>start</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>end</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.IdOrKey">IdOrKey</h3>
+        <p>枚举 ID/Name 索引</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.IdRequest">IdRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.Ids">Ids</h3>
+        <p>枚举 ID 多索引</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.IndexRequest">IndexRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#lebai.sql.IdOrKey">IdOrKey</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.ListFilter">ListFilter</h3>
+        <p>列表查询过滤条件</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p>`id` in {ids} </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keyword</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>`name` like {keyword}, 如果需要模糊查询，手动添加% </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created</td>
+                  <td><a href="#lebai.sql.DateFilter">DateFilter</a></td>
+                  <td></td>
+                  <td><p>`created_at` between {created} </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#lebai.sql.DateFilter">DateFilter</a></td>
+                  <td></td>
+                  <td><p>`updated_at` between {updated} </p></td>
+                </tr>
+              
+                <tr>
+                  <td>order</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>order by {order} </p></td>
+                </tr>
+              
+                <tr>
+                  <td>asc</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">Pagination</a></td>
+                  <td></td>
+                  <td><p>分页 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.sql.Pagination">Pagination</h3>
+        <p>分页器</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>第几页 取值[0~total) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>size</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>每页大小 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>总共几页 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.sql.DataStatus">DataStatus</h3>
+        <p>数据状态</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NORMAL</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>READ_ONLY</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>HIDDEN</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DELETED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="task.proto">task.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.task.TaskListRequest">TaskListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.task.TaskModelFields">TaskModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.task.TaskListResponse">TaskListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.task.TaskModel">TaskModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.task.TaskModel">TaskModel</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>event_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>事件ID，已弃用 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#lebai.task.TaskState">TaskState</a></td>
+                  <td></td>
+                  <td><p>任务运行状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>loop_count</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>已完成的循环次数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>loop_to</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>循环次数，默认为1。为0表示无限循环 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_main</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>是否为获得手臂控制权的主任务 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_simu</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>是否为仿真模式 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>输出 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>started_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>启动运行时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ended_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>结束运行时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pause_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>暂停运行时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pre_pause</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>之前总共暂停用时ms，不包括本次暂停 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>record</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>运行该任务时原始的场景记录 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.task.TaskModelFields">TaskModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.task.TaskModel">TaskModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.task.TaskStdout">TaskStdout</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>done</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.task.TaskState">TaskState</h3>
+        <p>任务运行状态</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>WAIT</td>
+                <td>0</td>
+                <td><p>等待启动运行</p></td>
+              </tr>
+            
+              <tr>
+                <td>RUNNING</td>
+                <td>1</td>
+                <td><p>运行中</p></td>
+              </tr>
+            
+              <tr>
+                <td>PAUSE</td>
+                <td>2</td>
+                <td><p>已暂停</p></td>
+              </tr>
+            
+              <tr>
+                <td>SUCCESS</td>
+                <td>3</td>
+                <td><p>运行成功</p></td>
+              </tr>
+            
+              <tr>
+                <td>INTERRUPT</td>
+                <td>4</td>
+                <td><p>用户主动停止</p></td>
+              </tr>
+            
+              <tr>
+                <td>FAIL</td>
+                <td>5</td>
+                <td><p>运行失败</p></td>
+              </tr>
+            
+              <tr>
+                <td>BEGIN</td>
+                <td>11</td>
+                <td><p>开始运行，已弃用</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.task.TaskService">TaskService</h3>
+        <p>任务相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LoadTask</td>
+                <td><a href="#lebai.sql.IdRequest">.lebai.sql.IdRequest</a></td>
+                <td><a href="#lebai.task.TaskModel">TaskModel</a></td>
+                <td><p>查询任务</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadTaskList</td>
+                <td><a href="#lebai.task.TaskListRequest">TaskListRequest</a></td>
+                <td><a href="#lebai.task.TaskListResponse">TaskListResponse</a></td>
+                <td><p>查询任务列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTaskStdout</td>
+                <td><a href="#lebai.sql.IdRequest">.lebai.sql.IdRequest</a></td>
+                <td><a href="#lebai.task.TaskStdout">TaskStdout</a></td>
+                <td><p>获取任务输出</p></td>
+              </tr>
+            
+              <tr>
+                <td>SubTaskStdout</td>
+                <td><a href="#lebai.sql.IdRequest">.lebai.sql.IdRequest</a></td>
+                <td><a href="#lebai.task.TaskStdout">TaskStdout</a> stream</td>
+                <td><p>订阅任务输出流</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+

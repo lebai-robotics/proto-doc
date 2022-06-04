@@ -407,6 +407,37 @@
         
           
           <li>
+            <a href="#signal.proto">signal.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.signal.GetSignalRequest"><span class="badge">M</span>GetSignalRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.signal.GetSignalResponse"><span class="badge">M</span>GetSignalResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.signal.SetSignalRequest"><span class="badge">M</span>SetSignalRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.signal.WaitSignalRequest"><span class="badge">M</span>WaitSignalRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.signal.SignalService"><span class="badge">S</span>SignalService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#sql.proto">sql.proto</a>
             <ul>
               
@@ -2537,6 +2568,177 @@
                 <td><a href="#lebai.scene.SceneRunRequest">SceneRunRequest</a></td>
                 <td><a href="#lebai.scene.SceneRunResponse">SceneRunResponse</a></td>
                 <td><p>运行场景，返回任务ID</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="signal.proto">signal.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.signal.GetSignalRequest">GetSignalRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.signal.GetSignalResponse">GetSignalResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.signal.SetSignalRequest">SetSignalRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.signal.WaitSignalRequest">WaitSignalRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>relation</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.signal.SignalService">SignalService</h3>
+        <p>信号量相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetSignal</td>
+                <td><a href="#lebai.signal.SetSignalRequest">SetSignalRequest</a></td>
+                <td><a href="#lebai.signal.GetSignalResponse">GetSignalResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSignal</td>
+                <td><a href="#lebai.signal.GetSignalRequest">GetSignalRequest</a></td>
+                <td><a href="#lebai.signal.GetSignalResponse">GetSignalResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WaitSignal</td>
+                <td><a href="#lebai.signal.WaitSignalRequest">WaitSignalRequest</a></td>
+                <td><a href="#lebai.signal.GetSignalResponse">GetSignalResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>AddSignal</td>
+                <td><a href="#lebai.signal.SetSignalRequest">SetSignalRequest</a></td>
+                <td><a href="#lebai.signal.GetSignalResponse">GetSignalResponse</a></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>

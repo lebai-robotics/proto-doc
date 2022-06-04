@@ -450,6 +450,33 @@
         
           
           <li>
+            <a href="#status.proto">status.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.status.RobotData"><span class="badge">M</span>RobotData</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.status.SubRobotDataRequest"><span class="badge">M</span>SubRobotDataRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.status.RobotState"><span class="badge">E</span>RobotState</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.status.StatusService"><span class="badge">S</span>StatusService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#task.proto">task.proto</a>
             <ul>
               
@@ -2783,6 +2810,287 @@
       
 
       
+    
+      
+      <div class="file-heading">
+        <h2 id="status.proto">status.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.status.RobotData">RobotData</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>robot_state</td>
+                  <td><a href="#lebai.status.RobotState">RobotState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actual_joint</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actual_pose</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actual_vel</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actual_acc</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actual_torque</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>flange_current</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>joint_current</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_joint</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_pose</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_vel</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_acc</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>target_torque</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>temp</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.status.SubRobotDataRequest">SubRobotDataRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>keys</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>订阅的字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>interval</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>保证interval时间(ms)内至少推送1次 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.status.RobotState">RobotState</h3>
+        <p>机器人状态</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Disconnected</td>
+                <td>0</td>
+                <td><p>已断开连接</p></td>
+              </tr>
+            
+              <tr>
+                <td>EStop</td>
+                <td>1</td>
+                <td><p>急停停止状态</p></td>
+              </tr>
+            
+              <tr>
+                <td>Booting</td>
+                <td>2</td>
+                <td><p>启动中</p></td>
+              </tr>
+            
+              <tr>
+                <td>RobotOff</td>
+                <td>3</td>
+                <td><p>电源关闭</p></td>
+              </tr>
+            
+              <tr>
+                <td>RobotOn</td>
+                <td>4</td>
+                <td><p>电源开启</p></td>
+              </tr>
+            
+              <tr>
+                <td>Idle</td>
+                <td>5</td>
+                <td><p>空闲中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Paused</td>
+                <td>6</td>
+                <td><p>已暂停</p></td>
+              </tr>
+            
+              <tr>
+                <td>Moving</td>
+                <td>7</td>
+                <td><p>机器人运动中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Updating</td>
+                <td>8</td>
+                <td><p>更新固件中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Starting</td>
+                <td>9</td>
+                <td><p>启动中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Stopping</td>
+                <td>10</td>
+                <td><p>停止中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Teaching</td>
+                <td>11</td>
+                <td><p>示教中</p></td>
+              </tr>
+            
+              <tr>
+                <td>Stop</td>
+                <td>12</td>
+                <td><p>普通停止</p></td>
+              </tr>
+            
+              <tr>
+                <td>Finetuning</td>
+                <td>13</td>
+                <td><p>微调中</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.status.StatusService">StatusService</h3>
+        <p>机器人状态相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetRobotData</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.status.RobotData">RobotData</a></td>
+                <td><p>获取机器人状态</p></td>
+              </tr>
+            
+              <tr>
+                <td>SubRobotData</td>
+                <td><a href="#lebai.status.SubRobotDataRequest">SubRobotDataRequest</a></td>
+                <td><a href="#lebai.status.RobotData">RobotData</a> stream</td>
+                <td><p>订阅机器人状态</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
     
       
       <div class="file-heading">

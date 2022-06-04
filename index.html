@@ -427,6 +427,10 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.sql.IdsRequest"><span class="badge">M</span>IdsRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.sql.IndexRequest"><span class="badge">M</span>IndexRequest</a>
                 </li>
               
@@ -477,8 +481,31 @@
         
           
           <li>
+            <a href="#system.proto">system.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.system.SystemInfoResponse"><span class="badge">M</span>SystemInfoResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.system.SystemService"><span class="badge">S</span>SystemService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#task.proto">task.proto</a>
             <ul>
+              
+                <li>
+                  <a href="#lebai.task.PauseRequest"><span class="badge">M</span>PauseRequest</a>
+                </li>
               
                 <li>
                   <a href="#lebai.task.TaskListRequest"><span class="badge">M</span>TaskListRequest</a>
@@ -2641,6 +2668,30 @@
 
         
       
+        <h3 id="lebai.sql.IdsRequest">IdsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#lebai.sql.Ids">Ids</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.sql.IndexRequest">IndexRequest</h3>
         <p></p>
 
@@ -3094,10 +3145,182 @@
     
       
       <div class="file-heading">
+        <h2 id="system.proto">system.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.system.SystemInfoResponse">SystemInfoResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kernel_version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>os_version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>host_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>processors_len</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_memory</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>used_memory</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_swap</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>used_swap</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>disks</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>networks</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>components</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.system.SystemService">SystemService</h3>
+        <p>系统控制相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SystemInfo</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.system.SystemInfoResponse">SystemInfoResponse</a></td>
+                <td><p>系统信息</p></td>
+              </tr>
+            
+              <tr>
+                <td>Estop</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>急停</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
         <h2 id="task.proto">task.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
 
+      
+        <h3 id="lebai.task.PauseRequest">PauseRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>暂停时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wait</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>等待 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="lebai.task.TaskListRequest">TaskListRequest</h3>
         <p></p>
@@ -3459,6 +3682,27 @@
                 <td><a href="#lebai.sql.IdRequest">.lebai.sql.IdRequest</a></td>
                 <td><a href="#lebai.task.TaskStdout">TaskStdout</a> stream</td>
                 <td><p>订阅任务输出流</p></td>
+              </tr>
+            
+              <tr>
+                <td>Pause</td>
+                <td><a href="#lebai.task.PauseRequest">PauseRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>暂停任务与运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>Resume</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>恢复任务与运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>Cancel</td>
+                <td><a href="#lebai.sql.IdsRequest">.lebai.sql.IdsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>取消任务与运动</p></td>
               </tr>
             
           </tbody>

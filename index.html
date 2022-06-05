@@ -301,6 +301,37 @@
         
           
           <li>
+            <a href="#kinematic.proto">kinematic.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.kinematic.DhParam"><span class="badge">M</span>DhParam</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.kinematic.DhParams"><span class="badge">M</span>DhParams</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.kinematic.Tcp"><span class="badge">M</span>Tcp</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.kinematic.VelocityFactor"><span class="badge">M</span>VelocityFactor</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.kinematic.KinematicService"><span class="badge">S</span>KinematicService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#led.proto">led.proto</a>
             <ul>
               
@@ -384,6 +415,33 @@
               
                 <li>
                   <a href="#lebai.motion.MotionService"><span class="badge">S</span>MotionService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#motor.proto">motor.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.motor.ServoParam"><span class="badge">M</span>ServoParam</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motor.ServoParams"><span class="badge">M</span>ServoParams</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motor.SetZeroRequest"><span class="badge">M</span>SetZeroRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.motor.MotorService"><span class="badge">S</span>MotorService</a>
                 </li>
               
             </ul>
@@ -1900,6 +1958,191 @@
     
       
       <div class="file-heading">
+        <h2 id="kinematic.proto">kinematic.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.kinematic.DhParam">DhParam</h3>
+        <p>关节DH参数</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>a</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>alpha</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>d</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>theta</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.kinematic.DhParams">DhParams</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#lebai.kinematic.DhParam">DhParam</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.kinematic.Tcp">Tcp</h3>
+        <p>工具中心点</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pose</td>
+                  <td><a href="#lebai.posture.CartesianPose">lebai.posture.CartesianPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.kinematic.VelocityFactor">VelocityFactor</h3>
+        <p>速度因子(0~100)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>scale</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>速度因子(0~100) </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.kinematic.KinematicService">KinematicService</h3>
+        <p>运动学相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetDh</td>
+                <td><a href="#lebai.kinematic.DhParams">DhParams</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置DH参数</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDh</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.kinematic.DhParams">DhParams</a></td>
+                <td><p>获取DH参数</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetVelocityFactor</td>
+                <td><a href="#lebai.kinematic.VelocityFactor">VelocityFactor</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置速度因子</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetVelocityFactor</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.kinematic.VelocityFactor">VelocityFactor</a></td>
+                <td><p>获取速度因子</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetTcp</td>
+                <td><a href="#lebai.kinematic.Tcp">Tcp</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置工具中心点</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTcp</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.kinematic.Tcp">Tcp</a></td>
+                <td><p>获取工具中心点</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
         <h2 id="led.proto">led.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
@@ -2658,6 +2901,146 @@
                 <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>直线运动</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="motor.proto">motor.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.motor.ServoParam">ServoParam</h3>
+        <p>伺服参数</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>position_kp</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>speed_kp</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>speed_it</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>torque_cmd_filter</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motor.ServoParams">ServoParams</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#lebai.motor.ServoParam">ServoParam</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motor.SetZeroRequest">SetZeroRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pose</td>
+                  <td><a href="#lebai.posture.JointPose">lebai.posture.JointPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.motor.MotorService">MotorService</h3>
+        <p>关节电机相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetServoParams</td>
+                <td><a href="#lebai.motor.ServoParams">ServoParams</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置伺服参数</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetServoParams</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.motor.ServoParams">ServoParams</a></td>
+                <td><p>获取伺服参数</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetZero</td>
+                <td><a href="#lebai.motor.SetZeroRequest">SetZeroRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置关节零位</p></td>
               </tr>
             
           </tbody>

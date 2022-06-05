@@ -360,6 +360,29 @@
         
           
           <li>
+            <a href="#multi_devices.proto">multi_devices.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.multi_devices.DeviceInfo"><span class="badge">M</span>DeviceInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.multi_devices.DiscoverRobotsResponse"><span class="badge">M</span>DiscoverRobotsResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.multi_devices.MultiDevicesService"><span class="badge">S</span>MultiDevicesService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#posture.proto">posture.proto</a>
             <ul>
               
@@ -2433,6 +2456,108 @@
                 <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>直线运动</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="multi_devices.proto">multi_devices.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.multi_devices.DeviceInfo">DeviceInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mac</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ip</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>online</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.multi_devices.DiscoverRobotsResponse">DiscoverRobotsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>devices</td>
+                  <td><a href="#lebai.multi_devices.DeviceInfo">DeviceInfo</a></td>
+                  <td>repeated</td>
+                  <td><p>设备列表 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.multi_devices.MultiDevicesService">MultiDevicesService</h3>
+        <p>多机协同相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DiscoverRobots</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.multi_devices.DiscoverRobotsResponse">DiscoverRobotsResponse</a></td>
+                <td><p>设备发现</p></td>
               </tr>
             
           </tbody>

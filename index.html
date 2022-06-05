@@ -175,6 +175,37 @@
         
           
           <li>
+            <a href="#dynamic.proto">dynamic.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.dynamic.Gravity"><span class="badge">M</span>Gravity</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.dynamic.Payload"><span class="badge">M</span>Payload</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.dynamic.PayloadCog"><span class="badge">M</span>PayloadCog</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.dynamic.PayloadMass"><span class="badge">M</span>PayloadMass</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.dynamic.DynamicService"><span class="badge">S</span>DynamicService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#io.proto">io.proto</a>
             <ul>
               
@@ -686,6 +717,177 @@
       </ul>
     </div>
 
+    
+      
+      <div class="file-heading">
+        <h2 id="dynamic.proto">dynamic.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.dynamic.Gravity">Gravity</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>gravity</td>
+                  <td><a href="#lebai.posture.Position">lebai.posture.Position</a></td>
+                  <td></td>
+                  <td><p>地心引力 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.dynamic.Payload">Payload</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mass</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>负载质量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cog</td>
+                  <td><a href="#lebai.posture.Position">lebai.posture.Position</a></td>
+                  <td></td>
+                  <td><p>负载重心偏移位置 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.dynamic.PayloadCog">PayloadCog</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>cog</td>
+                  <td><a href="#lebai.posture.Position">lebai.posture.Position</a></td>
+                  <td></td>
+                  <td><p>负载重心偏移位置 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.dynamic.PayloadMass">PayloadMass</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mass</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>负载质量 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.dynamic.DynamicService">DynamicService</h3>
+        <p>动力学相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetPayload</td>
+                <td><a href="#lebai.dynamic.Payload">Payload</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置当前负载</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetPayloadMass</td>
+                <td><a href="#lebai.dynamic.PayloadMass">PayloadMass</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置当前负载质量</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetPayloadCog</td>
+                <td><a href="#lebai.dynamic.PayloadCog">PayloadCog</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置当前负载重心偏移位置</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPayload</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.dynamic.Payload">Payload</a></td>
+                <td><p>获取当前负载</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetGravity</td>
+                <td><a href="#lebai.dynamic.Gravity">Gravity</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置当前地心引力</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetGravity</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.posture.Position">.lebai.posture.Position</a></td>
+                <td><p>获取当前地心引力</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
     
       
       <div class="file-heading">

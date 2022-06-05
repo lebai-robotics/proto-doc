@@ -270,6 +270,73 @@
         
           
           <li>
+            <a href="#led.proto">led.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.led.FanData"><span class="badge">M</span>FanData</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedData"><span class="badge">M</span>LedData</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedStyle"><span class="badge">M</span>LedStyle</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedStyleItem"><span class="badge">M</span>LedStyleItem</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedStyles"><span class="badge">M</span>LedStyles</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedStyles.StylesEntry"><span class="badge">M</span>LedStyles.StylesEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.VoiceData"><span class="badge">M</span>VoiceData</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.led.FanMode"><span class="badge">E</span>FanMode</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedColor"><span class="badge">E</span>LedColor</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedMode"><span class="badge">E</span>LedMode</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.LedSpeed"><span class="badge">E</span>LedSpeed</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.VoiceKind"><span class="badge">E</span>VoiceKind</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.led.Volume"><span class="badge">E</span>Volume</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.led.LedService"><span class="badge">S</span>LedService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#motion.proto">motion.proto</a>
             <ul>
               
@@ -1571,6 +1638,657 @@
                 <td>SetAos</td>
                 <td><a href="#lebai.io.SetIoPinsRequest">SetIoPinsRequest</a></td>
                 <td><a href="#lebai.io.GetIoPinsResponse">GetIoPinsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="led.proto">led.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.led.FanData">FanData</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mode</td>
+                  <td><a href="#lebai.led.FanMode">FanMode</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.LedData">LedData</h3>
+        <p>LED样式</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mode</td>
+                  <td><a href="#lebai.led.LedMode">LedMode</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>speed</td>
+                  <td><a href="#lebai.led.LedSpeed">LedSpeed</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>color</td>
+                  <td><a href="#lebai.led.LedColor">LedColor</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.LedStyle">LedStyle</h3>
+        <p>声光交互样式</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>led</td>
+                  <td><a href="#lebai.led.LedData">LedData</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>voice</td>
+                  <td><a href="#lebai.led.VoiceKind">VoiceKind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volume</td>
+                  <td><a href="#lebai.led.Volume">Volume</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.LedStyleItem">LedStyleItem</h3>
+        <p>机器人状态对应的声光交互样式</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#lebai.status.RobotState">lebai.status.RobotState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>style</td>
+                  <td><a href="#lebai.led.LedStyle">LedStyle</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.LedStyles">LedStyles</h3>
+        <p>声光交互样式集</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>styles</td>
+                  <td><a href="#lebai.led.LedStyles.StylesEntry">LedStyles.StylesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.LedStyles.StylesEntry">LedStyles.StylesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#lebai.led.LedStyle">LedStyle</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.led.VoiceData">VoiceData</h3>
+        <p>声音样式</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>voice</td>
+                  <td><a href="#lebai.led.VoiceKind">VoiceKind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volume</td>
+                  <td><a href="#lebai.led.Volume">Volume</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.led.FanMode">FanMode</h3>
+        <p>风扇工作模式</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>HoldFan</td>
+                <td>0</td>
+                <td><p>无动作</p></td>
+              </tr>
+            
+              <tr>
+                <td>CloseFan</td>
+                <td>1</td>
+                <td><p>关闭</p></td>
+              </tr>
+            
+              <tr>
+                <td>OpenFan</td>
+                <td>2</td>
+                <td><p>打开</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.led.LedColor">LedColor</h3>
+        <p>LED颜色</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Red</td>
+                <td>0</td>
+                <td><p>#ff0000</p></td>
+              </tr>
+            
+              <tr>
+                <td>Green</td>
+                <td>1</td>
+                <td><p>#00ff00</p></td>
+              </tr>
+            
+              <tr>
+                <td>Blue</td>
+                <td>2</td>
+                <td><p>#0000ff</p></td>
+              </tr>
+            
+              <tr>
+                <td>Pink</td>
+                <td>3</td>
+                <td><p>#ff00ff</p></td>
+              </tr>
+            
+              <tr>
+                <td>Yellow</td>
+                <td>4</td>
+                <td><p>#ffff00</p></td>
+              </tr>
+            
+              <tr>
+                <td>Cyan</td>
+                <td>5</td>
+                <td><p>#00fff</p></td>
+              </tr>
+            
+              <tr>
+                <td>Gray</td>
+                <td>6</td>
+                <td><p>#808080</p></td>
+              </tr>
+            
+              <tr>
+                <td>Brown</td>
+                <td>7</td>
+                <td><p>#a52a2a</p></td>
+              </tr>
+            
+              <tr>
+                <td>Orange</td>
+                <td>8</td>
+                <td><p>#ffa500</p></td>
+              </tr>
+            
+              <tr>
+                <td>Gold</td>
+                <td>9</td>
+                <td><p>#ffd700</p></td>
+              </tr>
+            
+              <tr>
+                <td>Indigo</td>
+                <td>10</td>
+                <td><p>#4b0082</p></td>
+              </tr>
+            
+              <tr>
+                <td>LightSkyBlue</td>
+                <td>11</td>
+                <td><p>#87cefa</p></td>
+              </tr>
+            
+              <tr>
+                <td>DarkViolet</td>
+                <td>12</td>
+                <td><p>#9400d3</p></td>
+              </tr>
+            
+              <tr>
+                <td>Chocolate</td>
+                <td>13</td>
+                <td><p>#d2691e</p></td>
+              </tr>
+            
+              <tr>
+                <td>LightRed</td>
+                <td>14</td>
+                <td><p>#ff9e9a</p></td>
+              </tr>
+            
+              <tr>
+                <td>White</td>
+                <td>15</td>
+                <td><p>#ffffff</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.led.LedMode">LedMode</h3>
+        <p>LED工作模式</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>HoldLed</td>
+                <td>0</td>
+                <td><p>无动作</p></td>
+              </tr>
+            
+              <tr>
+                <td>CloseLed</td>
+                <td>1</td>
+                <td><p>关闭</p></td>
+              </tr>
+            
+              <tr>
+                <td>OpenLed</td>
+                <td>2</td>
+                <td><p>常亮</p></td>
+              </tr>
+            
+              <tr>
+                <td>Breath</td>
+                <td>3</td>
+                <td><p>呼吸</p></td>
+              </tr>
+            
+              <tr>
+                <td>Four</td>
+                <td>4</td>
+                <td><p>四块流水</p></td>
+              </tr>
+            
+              <tr>
+                <td>Water</td>
+                <td>5</td>
+                <td><p>同色流水</p></td>
+              </tr>
+            
+              <tr>
+                <td>Blink</td>
+                <td>6</td>
+                <td><p>闪烁</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.led.LedSpeed">LedSpeed</h3>
+        <p>LED运行速度</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>HoldLedSpeed</td>
+                <td>0</td>
+                <td><p>无动作</p></td>
+              </tr>
+            
+              <tr>
+                <td>Fast</td>
+                <td>1</td>
+                <td><p>快速</p></td>
+              </tr>
+            
+              <tr>
+                <td>Normal</td>
+                <td>2</td>
+                <td><p>中速</p></td>
+              </tr>
+            
+              <tr>
+                <td>Slow</td>
+                <td>3</td>
+                <td><p>慢速</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.led.VoiceKind">VoiceKind</h3>
+        <p>语音ID</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Off</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Booting</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Stoping</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CollisionDetected</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Upgrade</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TeachModeOn</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TeachModeOff</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FineTunningOn</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FineTunningOff</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FineTunningChange</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Boring</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Custom1</td>
+                <td>11</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Custom2</td>
+                <td>12</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Custom3</td>
+                <td>13</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Custom4</td>
+                <td>14</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Custom5</td>
+                <td>15</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.led.Volume">Volume</h3>
+        <p>语音音量</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Mute</td>
+                <td>0</td>
+                <td><p>静音</p></td>
+              </tr>
+            
+              <tr>
+                <td>Low</td>
+                <td>1</td>
+                <td><p>低</p></td>
+              </tr>
+            
+              <tr>
+                <td>Mid</td>
+                <td>2</td>
+                <td><p>中</p></td>
+              </tr>
+            
+              <tr>
+                <td>High</td>
+                <td>3</td>
+                <td><p>高</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.led.LedService">LedService</h3>
+        <p>灯板声光风扇相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetLedStyle</td>
+                <td><a href="#lebai.led.LedStyleItem">LedStyleItem</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetLedStyles</td>
+                <td><a href="#lebai.led.LedStyles">LedStyles</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetLedStyles</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.led.LedStyles">LedStyles</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetLed</td>
+                <td><a href="#lebai.led.LedData">LedData</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetVoice</td>
+                <td><a href="#lebai.led.VoiceData">VoiceData</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetFan</td>
+                <td><a href="#lebai.led.FanData">FanData</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
               </tr>
             

@@ -591,6 +591,10 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.safety.CartesianLimit"><span class="badge">M</span>CartesianLimit</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.safety.CollisionDetector"><span class="badge">M</span>CollisionDetector</a>
                 </li>
               
@@ -599,7 +603,15 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.safety.JointLimit"><span class="badge">M</span>JointLimit</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.safety.SetCarttLimitRequest"><span class="badge">M</span>SetCarttLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.safety.SetCollisionDetectorRequest"><span class="badge">M</span>SetCollisionDetectorRequest</a>
                 </li>
               
                 <li>
@@ -4188,6 +4200,44 @@
       <p></p>
 
       
+        <h3 id="lebai.safety.CartesianLimit">CartesianLimit</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>max_a</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_v</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>eq_radius</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.safety.CollisionDetector">CollisionDetector</h3>
         <p></p>
 
@@ -4250,6 +4300,51 @@
 
         
       
+        <h3 id="lebai.safety.JointLimit">JointLimit</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>min_position</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_position</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_a</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>max_v</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.safety.SetCarttLimitRequest">SetCarttLimitRequest</h3>
         <p></p>
 
@@ -4262,7 +4357,31 @@
               
                 <tr>
                   <td>limit</td>
-                  <td><a href="#lebai.posture.CartesianPose">lebai.posture.CartesianPose</a></td>
+                  <td><a href="#lebai.safety.CartesianLimit">CartesianLimit</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.safety.SetCollisionDetectorRequest">SetCollisionDetectorRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>detector</td>
+                  <td><a href="#lebai.safety.CollisionDetector">CollisionDetector</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4286,8 +4405,8 @@
               
                 <tr>
                   <td>limit</td>
-                  <td><a href="#lebai.posture.JointPose">lebai.posture.JointPose</a></td>
-                  <td></td>
+                  <td><a href="#lebai.safety.JointLimit">JointLimit</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -4350,7 +4469,7 @@
             
               <tr>
                 <td>SetCollisionDetector</td>
-                <td><a href="#lebai.safety.CollisionDetector">CollisionDetector</a></td>
+                <td><a href="#lebai.safety.SetCollisionDetectorRequest">SetCollisionDetectorRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>设置碰撞监测</p></td>
               </tr>

@@ -403,6 +403,14 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.motion.ForceModeParam"><span class="badge">M</span>ForceModeParam</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.ForceModeRequest"><span class="badge">M</span>ForceModeRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.motion.MoveParam"><span class="badge">M</span>MoveParam</a>
                 </li>
               
@@ -410,6 +418,26 @@
                   <a href="#lebai.motion.MoveRequest"><span class="badge">M</span>MoveRequest</a>
                 </li>
               
+                <li>
+                  <a href="#lebai.motion.MovecRequest"><span class="badge">M</span>MovecRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.SetForceSensorRequest"><span class="badge">M</span>SetForceSensorRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.SpeedRequest"><span class="badge">M</span>SpeedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.Wrench"><span class="badge">M</span>Wrench</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.motion.ForceSensor"><span class="badge">E</span>ForceSensor</a>
+                </li>
               
               
               
@@ -552,6 +580,41 @@
               
                 <li>
                   <a href="#lebai.posture.PostureService"><span class="badge">S</span>PostureService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#safety.proto">safety.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.safety.CollisionDetector"><span class="badge">M</span>CollisionDetector</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.safety.CollisionTorqueDiff"><span class="badge">M</span>CollisionTorqueDiff</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.safety.SetCarttLimitRequest"><span class="badge">M</span>SetCarttLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.safety.SetJointLimitRequest"><span class="badge">M</span>SetJointLimitRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.safety.CollisionDetectorAction"><span class="badge">E</span>CollisionDetectorAction</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.safety.SafetyService"><span class="badge">S</span>SafetyService</a>
                 </li>
               
             </ul>
@@ -2799,6 +2862,75 @@
       <p></p>
 
       
+        <h3 id="lebai.motion.ForceModeParam">ForceModeParam</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>threshold</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>启动力阈值 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>damping</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>阻尼系数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mass</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>物体重量 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.ForceModeRequest">ForceModeRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#lebai.posture.CartesianPose">lebai.posture.CartesianPose</a></td>
+                  <td></td>
+                  <td><p>限速 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wrench</td>
+                  <td><a href="#lebai.motion.Wrench">Wrench</a></td>
+                  <td></td>
+                  <td><p>控制力 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.motion.MoveParam">MoveParam</h3>
         <p></p>
 
@@ -2856,14 +2988,14 @@
               
                 <tr>
                   <td>pose</td>
-                  <td><a href="#double">double</a></td>
+                  <td><a href="#lebai.posture.Pose">lebai.posture.Pose</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>param</td>
-                  <td><a href="#double">double</a></td>
+                  <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -2875,7 +3007,173 @@
 
         
       
+        <h3 id="lebai.motion.MovecRequest">MovecRequest</h3>
+        <p></p>
 
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pose_via</td>
+                  <td><a href="#lebai.posture.Pose">lebai.posture.Pose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pose</td>
+                  <td><a href="#lebai.posture.Pose">lebai.posture.Pose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rad</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>param</td>
+                  <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.SetForceSensorRequest">SetForceSensorRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sensor</td>
+                  <td><a href="#lebai.motion.ForceSensor">ForceSensor</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.SpeedRequest">SpeedRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>velocities</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>param</td>
+                  <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.Wrench">Wrench</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>force</td>
+                  <td><a href="#lebai.posture.Position">lebai.posture.Position</a></td>
+                  <td></td>
+                  <td><p>受力大小 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>torque</td>
+                  <td><a href="#lebai.posture.Position">lebai.posture.Position</a></td>
+                  <td></td>
+                  <td><p>扭矩大小 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.motion.ForceSensor">ForceSensor</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Disable</td>
+                <td>0</td>
+                <td><p>禁用外力传感器</p></td>
+              </tr>
+            
+              <tr>
+                <td>Instantaneous</td>
+                <td>1</td>
+                <td><p>内部瞬时算法估算</p></td>
+              </tr>
+            
+              <tr>
+                <td>Continuous</td>
+                <td>2</td>
+                <td><p>内部连续算法估算</p></td>
+              </tr>
+            
+              <tr>
+                <td>Weight1</td>
+                <td>11</td>
+                <td><p>一维重力传感器</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
       
@@ -2890,6 +3188,27 @@
           <tbody>
             
               <tr>
+                <td>StopMove</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>停止所有运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>SkipMove</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>跳过当前运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>WaitMove</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>等待运动结束</p></td>
+              </tr>
+            
+              <tr>
                 <td>Movej</td>
                 <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
@@ -2901,6 +3220,83 @@
                 <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>直线运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>Movec</td>
+                <td><a href="#lebai.motion.MovecRequest">MovecRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>圆形运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>MovePavt</td>
+                <td><a href="#lebai.motion.MoveRequest">MoveRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>关节空间运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>SpeedJ</td>
+                <td><a href="#lebai.motion.SpeedRequest">SpeedRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>关节匀速运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>SpeedL</td>
+                <td><a href="#lebai.motion.SpeedRequest">SpeedRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>沿直线匀速运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>TeachMode</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>进入示教模式</p></td>
+              </tr>
+            
+              <tr>
+                <td>EndTeachMode</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>退出示教模式</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTcpForce</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.motion.Wrench">Wrench</a></td>
+                <td><p>读取末端受力</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetForceSensor</td>
+                <td><a href="#lebai.motion.SetForceSensorRequest">SetForceSensorRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置力控传感器选型</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetForceParam</td>
+                <td><a href="#lebai.motion.ForceModeParam">ForceModeParam</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置力控参数</p></td>
+              </tr>
+            
+              <tr>
+                <td>ForceMode</td>
+                <td><a href="#lebai.motion.ForceModeRequest">ForceModeRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>进入力控模式</p></td>
+              </tr>
+            
+              <tr>
+                <td>EndForceMode</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>退出力控模式</p></td>
               </tr>
             
           </tbody>
@@ -3778,6 +4174,220 @@
                 <td><a href="#lebai.posture.PoseRequest">PoseRequest</a></td>
                 <td><a href="#lebai.posture.CartesianPose">CartesianPose</a></td>
                 <td><p>位姿逆</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="safety.proto">safety.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.safety.CollisionDetector">CollisionDetector</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>action</td>
+                  <td><a href="#lebai.safety.CollisionDetectorAction">CollisionDetectorAction</a></td>
+                  <td></td>
+                  <td><p>碰撞后执行操作 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pause_time</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>action为PAUSE时生效，暂停时间(s) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sensitivity</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>灵敏度[0~100] </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.safety.CollisionTorqueDiff">CollisionTorqueDiff</h3>
+        <p>碰撞监测误差</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>diffs</td>
+                  <td><a href="#double">double</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.safety.SetCarttLimitRequest">SetCarttLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#lebai.posture.CartesianPose">lebai.posture.CartesianPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.safety.SetJointLimitRequest">SetJointLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#lebai.posture.JointPose">lebai.posture.JointPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.safety.CollisionDetectorAction">CollisionDetectorAction</h3>
+        <p>碰撞后执行操作</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ESTOP</td>
+                <td>0</td>
+                <td><p>碰撞后急停</p></td>
+              </tr>
+            
+              <tr>
+                <td>PAUSE</td>
+                <td>1</td>
+                <td><p>碰撞后暂停</p></td>
+              </tr>
+            
+              <tr>
+                <td>NONE</td>
+                <td>2</td>
+                <td><p>关闭碰撞监测</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.safety.SafetyService">SafetyService</h3>
+        <p>操作安全相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetCollisionTorqueDiff</td>
+                <td><a href="#lebai.safety.CollisionTorqueDiff">CollisionTorqueDiff</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置碰撞监测误差</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetCollisionDetector</td>
+                <td><a href="#lebai.safety.CollisionDetector">CollisionDetector</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置碰撞监测</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetCollisionDetector</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.safety.CollisionDetector">CollisionDetector</a></td>
+                <td><p>读取碰撞监测</p></td>
+              </tr>
+            
+              <tr>
+                <td>EnableLimit</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>使能限位检测</p></td>
+              </tr>
+            
+              <tr>
+                <td>DisableLimit</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>禁用限位检测</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetJointLimit</td>
+                <td><a href="#lebai.safety.SetJointLimitRequest">SetJointLimitRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置关节限位</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetCartLimit</td>
+                <td><a href="#lebai.safety.SetCarttLimitRequest">SetCarttLimitRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置空间限位</p></td>
               </tr>
             
           </tbody>

@@ -794,6 +794,29 @@
         
           
           <li>
+            <a href="#storage.proto">storage.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.storage.Item"><span class="badge">M</span>Item</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.storage.ItemKey"><span class="badge">M</span>ItemKey</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.storage.StorageService"><span class="badge">S</span>StorageService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#system.proto">system.proto</a>
             <ul>
               
@@ -3287,7 +3310,7 @@
                 <td>SkipMove</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>跳过当前运动</p></td>
+                <td><p>跳过当前运动(已弃用)</p></td>
               </tr>
             
               <tr>
@@ -5749,6 +5772,101 @@
                 <td><a href="#lebai.status.SubRobotDataRequest">SubRobotDataRequest</a></td>
                 <td><a href="#lebai.status.RobotData">RobotData</a> stream</td>
                 <td><p>订阅机器人状态</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="storage.proto">storage.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.storage.Item">Item</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.storage.ItemKey">ItemKey</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.storage.StorageService">StorageService</h3>
+        <p>用户数据存储相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetItem</td>
+                <td><a href="#lebai.storage.Item">Item</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置kv数据</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetItem</td>
+                <td><a href="#lebai.storage.ItemKey">ItemKey</a></td>
+                <td><a href="#lebai.storage.Item">Item</a></td>
+                <td><p>获取kv数据</p></td>
               </tr>
             
           </tbody>

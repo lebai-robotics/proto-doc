@@ -435,7 +435,11 @@
                 </li>
               
                 <li>
-                  <a href="#lebai.motion.SpeedRequest"><span class="badge">M</span>SpeedRequest</a>
+                  <a href="#lebai.motion.SpeedJRequest"><span class="badge">M</span>SpeedJRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.SpeedLRequest"><span class="badge">M</span>SpeedLRequest</a>
                 </li>
               
                 <li>
@@ -3188,7 +3192,7 @@
 
         
       
-        <h3 id="lebai.motion.SpeedRequest">SpeedRequest</h3>
+        <h3 id="lebai.motion.SpeedJRequest">SpeedJRequest</h3>
         <p></p>
 
         
@@ -3199,15 +3203,53 @@
             <tbody>
               
                 <tr>
-                  <td>velocities</td>
-                  <td><a href="#double">double</a></td>
-                  <td>repeated</td>
+                  <td>velocity</td>
+                  <td><a href="#lebai.posture.JointPose">lebai.posture.JointPose</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>param</td>
                   <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.SpeedLRequest">SpeedLRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>velocity</td>
+                  <td><a href="#lebai.posture.CartesianPose">lebai.posture.CartesianPose</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>param</td>
+                  <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>base</td>
+                  <td><a href="#lebai.posture.CartesianFrame">lebai.posture.CartesianFrame</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3350,14 +3392,14 @@
             
               <tr>
                 <td>SpeedJ</td>
-                <td><a href="#lebai.motion.SpeedRequest">SpeedRequest</a></td>
+                <td><a href="#lebai.motion.SpeedJRequest">SpeedJRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>关节匀速运动</p></td>
               </tr>
             
               <tr>
                 <td>SpeedL</td>
-                <td><a href="#lebai.motion.SpeedRequest">SpeedRequest</a></td>
+                <td><a href="#lebai.motion.SpeedLRequest">SpeedLRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>沿直线匀速运动</p></td>
               </tr>

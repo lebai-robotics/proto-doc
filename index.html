@@ -809,6 +809,10 @@
                   <a href="#lebai.storage.ItemKey"><span class="badge">M</span>ItemKey</a>
                 </li>
               
+                <li>
+                  <a href="#lebai.storage.Items"><span class="badge">M</span>Items</a>
+                </li>
+              
               
               
               
@@ -5890,6 +5894,30 @@
 
         
       
+        <h3 id="lebai.storage.Items">Items</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>items</td>
+                  <td><a href="#lebai.storage.Item">Item</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -5916,6 +5944,13 @@
                 <td><a href="#lebai.storage.ItemKey">ItemKey</a></td>
                 <td><a href="#lebai.storage.Item">Item</a></td>
                 <td><p>获取kv数据</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetItems</td>
+                <td><a href="#lebai.storage.ItemKey">ItemKey</a></td>
+                <td><a href="#lebai.storage.Items">Items</a></td>
+                <td><p>获取kv数据,支持使用%模糊匹配</p></td>
               </tr>
             
           </tbody>

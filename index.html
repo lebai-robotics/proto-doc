@@ -599,6 +599,45 @@
         
           
           <li>
+            <a href="#robot.proto">robot.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.robot.RobotListRequest"><span class="badge">M</span>RobotListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.robot.RobotListResponse"><span class="badge">M</span>RobotListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.robot.RobotModel"><span class="badge">M</span>RobotModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.robot.RobotModelFields"><span class="badge">M</span>RobotModelFields</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.robot.RobotSaveRequest"><span class="badge">M</span>RobotSaveRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.robot.RobotKind"><span class="badge">E</span>RobotKind</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.robot.RobotService"><span class="badge">S</span>RobotService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#safety.proto">safety.proto</a>
             <ul>
               
@@ -4332,6 +4371,308 @@
                 <td><a href="#lebai.posture.PoseRequest">PoseRequest</a></td>
                 <td><a href="#lebai.posture.CartesianPose">CartesianPose</a></td>
                 <td><p>位姿逆</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="robot.proto">robot.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.robot.RobotListRequest">RobotListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.robot.RobotModelFields">RobotModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.robot.RobotListResponse">RobotListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.robot.RobotModel">RobotModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.robot.RobotModel">RobotModel</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>active</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>激活状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.robot.RobotKind">RobotKind</a></td>
+                  <td></td>
+                  <td><p>型号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dof</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>自由度 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dh</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>DH参数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dyn</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>动力学参数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>servo</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>伺服参数 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.robot.RobotModelFields">RobotModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.robot.RobotModel">RobotModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.robot.RobotSaveRequest">RobotSaveRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ids</td>
+                  <td><a href="#lebai.sql.Ids">lebai.sql.Ids</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#lebai.robot.RobotModelFields">RobotModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.robot.RobotKind">RobotKind</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LM3</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LM3_L1</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.robot.RobotService">RobotService</h3>
+        <p>机器人手臂相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SaveRobot</td>
+                <td><a href="#lebai.robot.RobotSaveRequest">RobotSaveRequest</a></td>
+                <td><a href="#lebai.robot.RobotModel">RobotModel</a></td>
+                <td><p>保存机器人模型</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadRobot</td>
+                <td><a href="#lebai.sql.IndexRequest">.lebai.sql.IndexRequest</a></td>
+                <td><a href="#lebai.robot.RobotModel">RobotModel</a></td>
+                <td><p>查询机器人模型</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadRobotList</td>
+                <td><a href="#lebai.robot.RobotListRequest">RobotListRequest</a></td>
+                <td><a href="#lebai.robot.RobotListResponse">RobotListResponse</a></td>
+                <td><p>查询机器人模型列表</p></td>
               </tr>
             
           </tbody>

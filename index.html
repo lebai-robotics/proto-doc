@@ -4369,13 +4369,25 @@
               <tr>
                 <td>FLANGE</td>
                 <td>1</td>
-                <td><p>法兰平面</p></td>
+                <td><p>当前位置的法兰平面，以收到指令时为准</p></td>
               </tr>
             
               <tr>
                 <td>TCP</td>
                 <td>2</td>
-                <td><p>TCP</p></td>
+                <td><p>当前位置的TCP，以收到指令时为准</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_FLANGE</td>
+                <td>11</td>
+                <td><p>上个目标点的法兰平面</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_TCP</td>
+                <td>12</td>
+                <td><p>上个目标点的TCP</p></td>
               </tr>
             
               <tr>
@@ -4404,7 +4416,13 @@
               <tr>
                 <td>CURRENT</td>
                 <td>1</td>
-                <td><p>当前关节位置</p></td>
+                <td><p>当前位置的关节位置，以收到指令时为准</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST</td>
+                <td>11</td>
+                <td><p>上个目标点的关节位置</p></td>
               </tr>
             
               <tr>

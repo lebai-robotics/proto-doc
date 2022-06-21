@@ -399,6 +399,37 @@
         
           
           <li>
+            <a href="#log.proto">log.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.log.CallListRequest"><span class="badge">M</span>CallListRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.log.CallListResponse"><span class="badge">M</span>CallListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.log.CallModel"><span class="badge">M</span>CallModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.log.CallModelFields"><span class="badge">M</span>CallModelFields</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.log.LogService"><span class="badge">S</span>LogService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#motion.proto">motion.proto</a>
             <ul>
               
@@ -3021,6 +3052,205 @@
                 <td><a href="#lebai.led.FanData">FanData</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="log.proto">log.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.log.CallListRequest">CallListRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>filter</td>
+                  <td><a href="#lebai.sql.ListFilter">lebai.sql.ListFilter</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exact</td>
+                  <td><a href="#lebai.log.CallModelFields">CallModelFields</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.log.CallListResponse">CallListResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.log.CallModel">CallModel</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pager</td>
+                  <td><a href="#lebai.sql.Pagination">lebai.sql.Pagination</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.log.CallModel">CallModel</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#lebai.sql.DataStatus">lebai.sql.DataStatus</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>top</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>method</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>方法名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>入参 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.log.CallModelFields">CallModelFields</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mark</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>有效字段 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>model</td>
+                  <td><a href="#lebai.log.CallModel">CallModel</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.log.LogService">LogService</h3>
+        <p>日志相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LoadCallLogList</td>
+                <td><a href="#lebai.log.CallListRequest">CallListRequest</a></td>
+                <td><a href="#lebai.log.CallListResponse">CallListResponse</a></td>
+                <td><p>查询调用日志列表</p></td>
               </tr>
             
           </tbody>
